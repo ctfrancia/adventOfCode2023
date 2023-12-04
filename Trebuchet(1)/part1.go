@@ -9,19 +9,10 @@ import (
 )
 
 func main() {
-    var calibrationValues []int
-    var total int
-    /*
-    1abc2
-    pqr3stu8vwx
-    a1b2c3d4e5f
-    treb7uchet <--- this will be a little tricky
-
-    In this example, the calibration values of these four lines are 12, 38, 15, and 77. Adding these together produces 142.
-
-    given an input text file loop over each line and add the first and last
-    int together and print the result
-    */
+    var (
+        calibrationValues []int
+        total int
+    )
 
     f, err := os.Open("./Trebuchet(1)/calibrationInput.txt")
     if err != nil {
@@ -45,10 +36,12 @@ func main() {
 }
 
 func getFirstAndLastInt(s string) int {
-    var fInt string
-    var lInt string
-    var sum string
-    var sumInt int
+    var (
+        fInt string
+        lInt string
+        sum string
+        sumInt int
+    )
 
     for i := 0; i < len(s); i++ {
         //check if char is int
