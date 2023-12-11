@@ -73,13 +73,14 @@ func getFirstAndLastInt(s string) int {
 		//check if char is int
 		if s[i] >= '0' && s[i] <= '9' {
 			// convert byte to string
+            fmt.Println("asdfasdfasdfa", string(s[i]))
 			lInt = string(s[i])
 			break
 		}
 	}
 	sum = fInt + lInt
-    fmt.Printf("\n")
-    fmt.Printf("sum: %#v ", sum)
+    // fmt.Printf("\n")
+    // fmt.Printf("sum: %#v ", sum)
 
     sumInt, err := strconv.Atoi(sum)
     if err != nil {
