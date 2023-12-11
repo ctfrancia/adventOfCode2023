@@ -5,6 +5,7 @@ import (
     "log"
     "bufio"
     "os"
+    "strings"
 )
 
 func main() {
@@ -17,6 +18,14 @@ func main() {
 
     scanner := bufio.NewScanner(f)
     for scanner.Scan() {
+        var matchesDirty[]string = strings.Split(scanner.Text(), ":")
+        var matches string = strings.TrimSpace(matchesDirty[1])
+        var sets []string = strings.Split(matches, ";")
+        for _, set := range sets {
+            fmt.Printf("set: %s\n", set)
+        }
+        // fmt.Printf("set: %s\n", matches)
+        // fmt.Printf("line: %s\n", line)
         // cv := getFirstAndLastInt(scanner.Text())
         // calibrationValues = append(calibrationValues, cv)
     }
