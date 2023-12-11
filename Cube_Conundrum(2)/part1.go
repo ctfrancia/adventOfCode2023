@@ -1,8 +1,9 @@
 package main
 
 import (
-    "fmt"
-    "strings"
+	"fmt"
+	"strconv"
+	"strings"
 )
 
 var games = map[string]string{
@@ -107,29 +108,36 @@ var games = map[string]string{
 	"Game 99":  "6 blue, 3 green, 5 red; 3 green, 6 red, 8 blue; 3 green, 11 blue, 14 red; 14 red, 5 green, 1 blue",
 	"Game 100": "16 red, 3 blue; 2 red, 5 green; 9 red; 1 blue, 3 green, 10 red; 1 red, 5 blue, 3 green; 12 blue, 9 red",
 }
+var maxColorPerms = map[string]int{
+    "red": 12,
+    "green": 13,
+    "blue": 14,
+}
 func main() {
     total := 0
 
-    /*
     for _, results := range games {
-        // fmt.Printf("%s \n", results)
         matches := strings.Split(results, ";")
         for _, match := range matches {
-            // fmt.Printf("  %s \n", match)
             frames := strings.Split(match, ",")
             for _, frame := range frames {
-                // fmt.Printf("    %s \n", frame)
                 indv2 := strings.TrimSpace(frame)
                 indv := strings.Split(indv2, " ")
-                fmt.Printf("idx %s \n", string(frame))
-                for _, indiv := range indv {
-                    // fmt.Printf("indiv      %s \n", indiv[1])
-                    fmt.Println("     :", indiv)
+
+                color := string(indv[1])
+                num, err := strconv.Atoi(indv[0])
+                if err != nil {
+                    fmt.Println(err)
+                }
+                fmt.Printf("color: %s, num: %d \n", color, num)
+                fmt.Println("maxColorPerms[color] <= num", maxColorPerms[color] <= num)
+
+                if num <= maxColorPerms[color] {
+                    total++
                 }
             }
         }
     }
-    */
 
     fmt.Printf("Total: %d \n", total)
 }
