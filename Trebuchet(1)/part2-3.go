@@ -29,7 +29,6 @@ func main() {
 	g := ""
 	xdigits := []string{}
 	for _, game := range games {
-        fmt.Printf("raw game: %s\n", game)
 		g = ""
 		xdigits = []string{}
 
