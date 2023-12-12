@@ -21,8 +21,9 @@ func main() {
         var matchesDirty[]string = strings.Split(scanner.Text(), ":")
         var matches string = strings.TrimSpace(matchesDirty[1])
         var sets []string = strings.Split(matches, ";")
-        for _, set := range sets {
-            fmt.Printf("set: %s\n", set)
+        fmt.Printf("sets: %s\n", sets)
+        for i, set := range sets {
+            fmt.Printf("i-%d set: %s\n", i, set)
         }
         // fmt.Printf("set: %s\n", matches)
         // fmt.Printf("line: %s\n", line)
